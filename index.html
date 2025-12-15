@@ -365,9 +365,25 @@
             background: var(--primary-900);
             color: white;
             border-radius: 12px;
-            padding: 3rem;
+            padding: 2.5rem;
             position: relative;
             overflow: hidden;
+        }
+
+        .platform-preview h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: white;
+            text-wrap: balance;
+        }
+
+        .platform-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
         }
 
         .coming-badge {
@@ -486,6 +502,11 @@
             .footer-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
+            }
+
+            .platform-features {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
         }
 
@@ -736,22 +757,22 @@
     <section class="section" id="platform">
         <div class="container">
             <div class="platform-preview fade-in">
-                <div style="max-width: 600px;">
+                <div>
                     <div class="coming-badge">Coming Q3 2025</div>
-                    <h2 style="font-size: 2.5rem; font-weight: 600; margin-bottom: 1rem; color: white;">Introducing Our Private AI Platform</h2>
+                    <h2>Introducing Our Private AI Platform</h2>
                     <p style="font-size: 1.25rem; color: #94A3B8; margin-bottom: 2rem;">Launching Q3 2025: A complete solution for building, deploying, and monitoring safe AI systems</p>
-                    <div class="grid grid-3" style="gap: 1.5rem;">
+                    <div class="platform-features">
                         <div>
-                            <h4 style="color: white; margin-bottom: 0.5rem;">Private Model Training</h4>
-                            <p style="color: #94A3B8; font-size: 0.875rem;">Train on your data without privacy risks</p>
+                            <h4 style="color: white; margin-bottom: 0.75rem;">Private Model Training</h4>
+                            <p style="color: #94A3B8; font-size: 0.9rem; line-height: 1.5;">Train on your data without privacy risks or external dependencies</p>
                         </div>
                         <div>
-                            <h4 style="color: white; margin-bottom: 0.5rem;">Automated Compliance</h4>
-                            <p style="color: #94A3B8; font-size: 0.875rem;">Generate PIAs, AIAs, and audit reports automatically</p>
+                            <h4 style="color: white; margin-bottom: 0.75rem;">Automated Compliance</h4>
+                            <p style="color: #94A3B8; font-size: 0.9rem; line-height: 1.5;">Generate PIAs, AIAs, and audit reports automatically</p>
                         </div>
                         <div>
-                            <h4 style="color: white; margin-bottom: 0.5rem;">Safety Dashboard</h4>
-                            <p style="color: #94A3B8; font-size: 0.875rem;">Real-time monitoring for bias, drift, and privacy risks</p>
+                            <h4 style="color: white; margin-bottom: 0.75rem;">Safety Dashboard</h4>
+                            <p style="color: #94A3B8; font-size: 0.9rem; line-height: 1.5;">Real-time monitoring for bias, drift, and privacy risks</p>
                         </div>
                     </div>
                 </div>
@@ -830,7 +851,7 @@
                 <div>
                     <h4 style="color: white; font-weight: 600; margin-bottom: 1rem;">Connect</h4>
                     <ul class="footer-links">
-                        <li><a href="/cdn-cgi/l/email-protection#80e8e5ececefc0f8e9ede9ecaee1e9"><span class="__cf_email__" data-cfemail="8ae2efe6e6e5caf2e3e7e3e6a4ebe3">[email&#160;protected]</span></a></li>
+                        <li><a href="/cdn-cgi/l/email-protection#f9919c959596b98190949095d79890"><span class="__cf_email__" data-cfemail="97fff2fbfbf8d7effefafefbb9f6fe">[email&#160;protected]</span></a></li>
                         <li><a href="#linkedin">
                             <i data-lucide="linkedin" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 0.5rem;"></i>
                             LinkedIn
