@@ -386,6 +386,139 @@
             margin-top: 2rem;
         }
 
+        /* AI Models Section */
+        .ai-models-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .model-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .model-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary-600);
+            box-shadow: 0 20px 40px -10px rgba(0, 191, 255, 0.2);
+        }
+
+        .model-image {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .model-image img {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 8px rgba(0, 191, 255, 0.3));
+        }
+
+        .model-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .model-subtitle {
+            font-size: 0.875rem;
+            color: var(--secondary-500);
+            font-weight: 500;
+            text-align: center;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .model-description {
+            color: #94A3B8;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .model-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+
+        .feature-tag {
+            background: rgba(0, 191, 255, 0.1);
+            border: 1px solid rgba(0, 191, 255, 0.3);
+            color: var(--primary-600);
+            padding: 0.375rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        /* Training Process */
+        .training-process {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .process-steps {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .process-step {
+            text-align: center;
+            max-width: 200px;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-600);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 1.125rem;
+            margin: 0 auto 1rem;
+        }
+
+        .process-step h4 {
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .process-step p {
+            color: #94A3B8;
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+
+        .process-arrow {
+            color: var(--secondary-500);
+            font-size: 1.5rem;
+            font-weight: 300;
+        }
+
         .coming-badge {
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
@@ -508,6 +641,25 @@
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
             }
+
+            .ai-models-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .model-image img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .process-steps {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .process-arrow {
+                transform: rotate(90deg);
+            }
         }
 
         /* Utility Classes */
@@ -549,6 +701,7 @@
                 <nav>
                     <ul class="nav-links">
                         <li><a href="#services">Services</a></li>
+                        <li><a href="#models">AI Models</a></li>
                         <li><a href="#industries">Industries</a></li>
                         <li><a href="#platform">Platform</a></li>
                         <li><a href="#contact">Contact</a></li>
@@ -725,6 +878,108 @@
         </div>
     </section>
 
+    <!-- AI Models Section -->
+    <section class="section" id="models" style="background: var(--primary-900); color: white;">
+        <div class="container">
+            <div class="text-center section-spacing">
+                <h2 class="section-h2" style="color: white;">Specialized AI Models Built Ethically</h2>
+                <p class="body-large" style="color: #94A3B8; max-width: 800px; margin: 0 auto;">Our models are trained using only publicly available datasets, then fine-tuned with your organization's data in your secure environment—ensuring complete privacy and compliance.</p>
+                <p style="color: var(--secondary-500); font-weight: 600; margin-top: 1rem;">No data ever leaves your infrastructure</p>
+            </div>
+
+            <div class="ai-models-grid">
+                <div class="model-card fade-in">
+                    <div class="model-image">
+                        <img src="aegis.png" alt="Aegis Privacy AI Model">
+                    </div>
+                    <div class="model-content">
+                        <h3 class="model-title">Aegis Privacy AI Model</h3>
+                        <p class="model-subtitle">Privacy, Protection, Guardianship</p>
+                        <p class="model-description">Advanced privacy-preserving AI that shields sensitive data while maintaining model performance. Built with differential privacy and federated learning principles.</p>
+                        <div class="model-features">
+                            <span class="feature-tag">Differential Privacy</span>
+                            <span class="feature-tag">Data Anonymization</span>
+                            <span class="feature-tag">Secure Multi-Party Computation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="model-card fade-in">
+                    <div class="model-image">
+                        <img src="phalanx.png" alt="Phalanx Safety AI Model">
+                    </div>
+                    <div class="model-content">
+                        <h3 class="model-title">Phalanx Safety AI Model</h3>
+                        <p class="model-subtitle">Collective Safety, Resilience, Proactive Defense</p>
+                        <p class="model-description">Multi-layered safety system that works in unison to detect, prevent, and mitigate AI-related risks across your entire organization.</p>
+                        <div class="model-features">
+                            <span class="feature-tag">Adversarial Detection</span>
+                            <span class="feature-tag">Risk Assessment</span>
+                            <span class="feature-tag">Incident Response</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="model-card fade-in">
+                    <div class="model-image">
+                        <img src="dike.png" alt="Dike Fairness AI Model">
+                    </div>
+                    <div class="model-content">
+                        <h3 class="model-title">Dike Fairness AI Model</h3>
+                        <p class="model-subtitle">Fairness, Justice, Unbiased Outcomes</p>
+                        <p class="model-description">Ensures equitable AI decisions through advanced bias detection, fairness metrics, and algorithmic auditing for compliant, just outcomes.</p>
+                        <div class="model-features">
+                            <span class="feature-tag">Bias Detection</span>
+                            <span class="feature-tag">Fairness Auditing</span>
+                            <span class="feature-tag">Ethical Compliance</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="model-card fade-in">
+                    <div class="model-image">
+                        <img src="ethos.png" alt="Ethos Explainable AI Model">
+                    </div>
+                    <div class="model-content">
+                        <h3 class="model-title">Ethos Explainable AI Model</h3>
+                        <p class="model-subtitle">Explainability, Transparency, Ethical Clarity</p>
+                        <p class="model-description">Provides clear, interpretable AI decisions with full transparency into the reasoning process, building trust and enabling human oversight.</p>
+                        <div class="model-features">
+                            <span class="feature-tag">Decision Transparency</span>
+                            <span class="feature-tag">Interpretable Results</span>
+                            <span class="feature-tag">Human Oversight</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center" style="margin-top: 4rem;">
+                <div class="training-process">
+                    <h3 style="color: white; margin-bottom: 2rem; font-size: 1.5rem;">Our Ethical Training Process</h3>
+                    <div class="process-steps">
+                        <div class="process-step">
+                            <div class="step-number">1</div>
+                            <h4>Public Data Foundation</h4>
+                            <p>Train base models using only publicly available, ethically-sourced datasets</p>
+                        </div>
+                        <div class="process-arrow">→</div>
+                        <div class="process-step">
+                            <div class="step-number">2</div>
+                            <h4>Private Fine-Tuning</h4>
+                            <p>Retrain with your organization's data in your secure environment</p>
+                        </div>
+                        <div class="process-arrow">→</div>
+                        <div class="process-step">
+                            <div class="step-number">3</div>
+                            <h4>Secure Deployment</h4>
+                            <p>Deploy on-premise or private cloud with zero data externalization</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Target Industries Section -->
     <section class="section" id="industries">
         <div class="container">
@@ -851,7 +1106,7 @@
                 <div>
                     <h4 style="color: white; font-weight: 600; margin-bottom: 1rem;">Connect</h4>
                     <ul class="footer-links">
-                        <li><a href="/cdn-cgi/l/email-protection#f9919c959596b98190949095d79890"><span class="__cf_email__" data-cfemail="97fff2fbfbf8d7effefafefbb9f6fe">[email&#160;protected]</span></a></li>
+                        <li><a href="/cdn-cgi/l/email-protection#c4aca1a8a8ab84bcada9ada8eaa5ad"><span class="__cf_email__" data-cfemail="29414c454546695140444045074840">[email&#160;protected]</span></a></li>
                         <li><a href="#linkedin">
                             <i data-lucide="linkedin" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 0.5rem;"></i>
                             LinkedIn
@@ -907,7 +1162,7 @@
 
         // Observe all fade-in elements
         document.addEventListener('DOMContentLoaded', () => {
-            const fadeElements = document.querySelectorAll('.card, .industry-badge, .platform-preview');
+            const fadeElements = document.querySelectorAll('.card, .industry-badge, .platform-preview, .model-card');
             fadeElements.forEach(el => observer.observe(el));
 
             // Trigger hero animations
