@@ -1122,9 +1122,37 @@
         lucide.createIcons();
 
         // Waitlist form functions
+        function sendEmailToLambda(email, source) {
+            const data = JSON.stringify({
+                email: email,
+                source: source
+            });
+            
+            fetch(URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: data
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Success:', data);
+            })
+            .catch((error) => {
+                console.error('Error sending email:', error);
+            });
+        }
+
         function joinWaitlist() {
             const email = document.getElementById('email-input').value;
             if (email) {
+                sendEmailToLambda(email, 'hero-section');
                 alert(`Thank you! We'll notify ${email} when our platform is ready.`);
                 document.getElementById('email-input').value = '';
             } else {
@@ -1137,6 +1165,7 @@
             const newsletterOptIn = document.getElementById('newsletter-opt-in').checked;
             
             if (email) {
+                sendEmailToLambda(email, 'footer-section' + (newsletterOptIn ? '-newsletter' : ''));
                 alert(`Thank you! We'll notify ${email} when our platform is ready.${newsletterOptIn ? ' You will also receive our newsletter.' : ''}`);
                 document.getElementById('email-input-footer').value = '';
                 document.getElementById('newsletter-opt-in').checked = false;
@@ -1175,12 +1204,16 @@
 
         // Navigation functions
         function scrollToWaitlist() {
-            const waitlistSection = document.querySelector('.section:last-of-type');
+            const waitlistSection = document.querySelector('#contact');
             if (waitlistSection) {
                 waitlistSection.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
                 });
+                // Focus on the email input field after scrolling
+                setTimeout(() => {
+                    document.getElementById('email-input-footer').focus();
+                }, 500);
             }
         }
 
