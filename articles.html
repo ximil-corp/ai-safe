@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Safety News & Articles | XiMil AI Safety Consulting</title>
+    <meta name="description" content="Latest news and articles about AI safety, ethics, and regulatory developments.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <style>
+        /* CSS Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 16px;
+            line-height: 1.625;
+            color: #64748B;
+            background-color: #F8FAFC;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Color System */
+        :root {
+            /* Primary Colors */
+            --primary-900: #0F172A;
+            --primary-600: #2563EB;
+            --primary-100: #DBEAFE;
+            
+            /* Secondary Colors */
+            --secondary-500: #0D9488;
+            --accent-500: #7C3AED;
+            
+            /* Neutral Scale */
+            --neutral-50: #F8FAFC;
+            --surface-white: #FFFFFF;
+            --neutral-500: #64748B;
+            --border-200: #E2E8F0;
+            
+            /* Semantic */
+            --success: #10B981;
+            --error: #EF4444;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Typography */
+        .display-h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.125;
+            letter-spacing: -0.02em;
+            color: var(--primary-900);
+            margin-bottom: 1.5rem;
+        }
+
+        .section-h2 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+            color: var(--primary-900);
+            margin-bottom: 1rem;
+        }
+
+        .body-large {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            color: var(--neutral-500);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Header */
+        .header {
+            background: var(--surface-white);
+            border-bottom: 1px solid var(--border-200);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 40px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--primary-900);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-600);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary-900);
+            cursor: pointer;
+        }
+
+        /* Button Styles */
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-decoration: none;
+            border: none;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--primary-600);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1D4ED8;
+            box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--neutral-50) 0%, var(--primary-100) 100%);
+            padding: 4rem 0 3rem;
+            text-align: center;
+        }
+
+        /* Articles Section */
+        .articles-section {
+            padding: 4rem 0;
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .article-card {
+            background: var(--surface-white);
+            border: 1px solid var(--border-200);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .article-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -10px rgba(37, 99, 235, 0.2);
+            border-color: var(--primary-600);
+        }
+
+        .article-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background: linear-gradient(135deg, var(--primary-100) 0%, var(--primary-600) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+        }
+
+        .article-content {
+            padding: 2rem;
+        }
+
+        .article-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-900);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .article-summary {
+            color: var(--neutral-500);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .article-link {
+            color: var(--primary-600);
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .article-link i {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary-900);
+            color: white;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .footer-brand {
+            max-width: 300px;
+        }
+
+        .footer-tagline {
+            color: #94A3B8;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: #94A3B8;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--surface-white);
+                padding: 1rem;
+                border-bottom: 1px solid var(--border-200);
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html">
+                    <img src="logo.png" alt="XiMil - AI Safety Consulting" class="logo">
+                </a>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#models">AI Models</a></li>
+                        <li><a href="index.html#industries">Industries</a></li>
+                        <li><a href="index.html#platform">Platform</a></li>
+                        <li><a href="articles.html">News</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                        <li><button class="btn btn-primary" onclick="window.location.href='index.html#waitlist'">Join Waitlist</button></li>
+                    </ul>
+                    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                        <i data-lucide="menu"></i>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="display-h1">AI Safety News & Articles</h1>
+            <p class="body-large">Stay informed about the latest developments in AI safety, ethics, and regulatory compliance</p>
+        </div>
+    </section>
+
+    <!-- Articles Section -->
+    <section class="articles-section">
+        <div class="container">
+            <div class="articles-grid">
+                <!-- Article 1 -->
+                <a href="https://3quarksdaily.com/3quarksdaily/2024/08/the-three-battlelines-for-ai-safety.html" target="_blank" rel="noopener noreferrer" class="article-card">
+                    <div class="article-image">
+                        <i data-lucide="shield-check"></i>
+                    </div>
+                    <div class="article-content">
+                        <h2 class="article-title">The Three Battlelines for AI Safety</h2>
+                        <p class="article-summary">
+                            An in-depth exploration of the critical frontiers in AI safety research. This article examines the three major challenges facing AI safety: technical alignment, governance frameworks, and societal preparedness. Understanding these battlelines is essential for building AI systems that are safe, beneficial, and aligned with human values.
+                        </p>
+                        <span class="article-link">
+                            Read full article
+                            <i data-lucide="external-link"></i>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Article 2 -->
+                <a href="https://internationalaisafetyreport.org/" target="_blank" rel="noopener noreferrer" class="article-card">
+                    <div class="article-image">
+                        <i data-lucide="globe"></i>
+                    </div>
+                    <div class="article-content">
+                        <h2 class="article-title">International AI Safety Report</h2>
+                        <p class="article-summary">
+                            A comprehensive global report on AI safety frameworks, international collaboration efforts, and emerging standards. This resource provides critical insights into how countries worldwide are addressing AI safety challenges and working together to establish common principles and practices for responsible AI development.
+                        </p>
+                        <span class="article-link">
+                            Read full report
+                            <i data-lucide="external-link"></i>
+                        </span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="logo.png" alt="XiMil" style="height: 40px; margin-bottom: 1rem;">
+                    <p class="footer-tagline">Building AI that serves humanity</p>
+                    <p style="color: #94A3B8; font-size: 0.875rem;">Proudly Canadian | Serving Canada and United States</p>
+                </div>
+                <div>
+                    <h4 style="color: white; font-weight: 600; margin-bottom: 1rem;">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: white; font-weight: 600; margin-bottom: 1rem;">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                        <li><a href="articles.html">News</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: white; font-weight: 600; margin-bottom: 1rem;">Connect</h4>
+                    <ul class="footer-links">
+                        <li><a href="/cdn-cgi/l/email-protection#c4aca1a8a8ab84bcada9ada8eaa5ad"><span class="__cf_email__">[email&#160;protected]</span></a></li>
+                        <li><a href="#linkedin">
+                            <i data-lucide="linkedin" style="width: 16px; height: 16px; vertical-align: middle; margin-right: 0.5rem;"></i>
+                            LinkedIn
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        }
+    </script>
+</body>
+</html>
