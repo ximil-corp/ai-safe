@@ -521,6 +521,93 @@ body {
     padding: 4rem 0;
 }
 
+/* Filter Section */
+.filter-section {
+    padding: 2rem 0;
+    background: var(--surface-white);
+    border-bottom: 1px solid var(--border-200);
+}
+
+.filter-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.filter-tag {
+    padding: 0.625rem 1.25rem;
+    border: 2px solid var(--border-200);
+    border-radius: 50px;
+    background: var(--surface-white);
+    color: var(--neutral-500);
+    font-weight: 500;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: capitalize;
+}
+
+.filter-tag:hover {
+    border-color: var(--primary-600);
+    color: var(--primary-600);
+    transform: translateY(-2px);
+}
+
+.filter-tag:focus,
+.filter-tag:focus-visible {
+    outline: 2px solid var(--primary-600);
+    outline-offset: 2px;
+}
+
+.filter-tag.active {
+    background: var(--primary-600);
+    border-color: var(--primary-600);
+    color: white;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.article-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.article-tag {
+    padding: 0.375rem 0.875rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+}
+
+.tag-chatgpt {
+    background: rgba(116, 195, 194, 0.15);
+    color: #0D9488;
+    border: 1px solid rgba(116, 195, 194, 0.3);
+}
+
+.tag-grok-ai {
+    background: rgba(124, 58, 237, 0.15);
+    color: #7C3AED;
+    border: 1px solid rgba(124, 58, 237, 0.3);
+}
+
+.tag-research {
+    background: rgba(37, 99, 235, 0.15);
+    color: var(--primary-600);
+    border: 1px solid rgba(37, 99, 235, 0.3);
+}
+
+.tag-law {
+    background: rgba(239, 68, 68, 0.15);
+    color: var(--error);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
 .articles-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -730,6 +817,16 @@ body {
 
     .articles-grid {
         grid-template-columns: 1fr;
+    }
+
+    .filter-tags {
+        gap: 0.75rem;
+        padding: 0 0.5rem;
+    }
+
+    .filter-tag {
+        padding: 0.5rem 1rem;
+        font-size: 0.8125rem;
     }
 }
 
