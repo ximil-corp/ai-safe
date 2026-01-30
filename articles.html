@@ -52,12 +52,12 @@
     <!-- Filter Section -->
     <section class="filter-section">
         <div class="container">
-            <div class="filter-tags">
-                <button class="filter-tag active" data-filter="all">All</button>
-                <button class="filter-tag" data-filter="chatgpt">ChatGPT</button>
-                <button class="filter-tag" data-filter="grok-ai">Grok AI</button>
-                <button class="filter-tag" data-filter="research">Research</button>
-                <button class="filter-tag" data-filter="law">Law</button>
+            <div class="filter-tags" role="group" aria-label="Filter articles by category">
+                <button class="filter-tag active" data-filter="all" aria-pressed="true">All</button>
+                <button class="filter-tag" data-filter="chatgpt" aria-pressed="false">ChatGPT</button>
+                <button class="filter-tag" data-filter="grok-ai" aria-pressed="false">Grok AI</button>
+                <button class="filter-tag" data-filter="research" aria-pressed="false">Research</button>
+                <button class="filter-tag" data-filter="law" aria-pressed="false">Law</button>
             </div>
         </div>
     </section>
@@ -213,9 +213,13 @@
                 button.addEventListener('click', function() {
                     const filter = this.getAttribute('data-filter');
 
-                    // Update active state
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Update active state and ARIA attributes
+                    filterButtons.forEach(btn => {
+                        btn.classList.remove('active');
+                        btn.setAttribute('aria-pressed', 'false');
+                    });
                     this.classList.add('active');
+                    this.setAttribute('aria-pressed', 'true');
 
                     // Filter articles
                     articleCards.forEach(card => {
@@ -223,7 +227,9 @@
                             card.style.display = 'block';
                         } else {
                             const tags = card.getAttribute('data-tags');
-                            if (tags && tags.includes(filter)) {
+                            // Split tags into array and check for exact match
+                            const tagArray = tags ? tags.split(' ') : [];
+                            if (tagArray.includes(filter)) {
                                 card.style.display = 'block';
                             } else {
                                 card.style.display = 'none';
