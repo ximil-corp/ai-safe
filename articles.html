@@ -49,16 +49,32 @@
         </div>
     </section>
 
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="container">
+            <div class="filter-tags">
+                <button class="filter-tag active" data-filter="all">All</button>
+                <button class="filter-tag" data-filter="chatgpt">ChatGPT</button>
+                <button class="filter-tag" data-filter="grok-ai">Grok AI</button>
+                <button class="filter-tag" data-filter="research">Research</button>
+                <button class="filter-tag" data-filter="law">Law</button>
+            </div>
+        </div>
+    </section>
+
     <!-- Articles Section -->
     <section class="articles-section">
         <div class="container">
             <div class="articles-grid">
                 <!-- Article 1 -->
-                <a href="https://3quarksdaily.com/3quarksdaily/2024/08/the-three-battlelines-for-ai-safety.html" target="_blank" rel="noopener noreferrer" class="article-card">
+                <a href="https://3quarksdaily.com/3quarksdaily/2024/08/the-three-battlelines-for-ai-safety.html" target="_blank" rel="noopener noreferrer" class="article-card" data-tags="research">
                     <div class="article-image">
                         <i data-lucide="shield-check"></i>
                     </div>
                     <div class="article-content">
+                        <div class="article-tags">
+                            <span class="article-tag tag-research">Research</span>
+                        </div>
                         <h2 class="article-title">The Three Battlelines for AI Safety</h2>
                         <p class="article-summary">
                             An in-depth exploration of the critical frontiers in AI safety research. This article examines the three major challenges facing AI safety: technical alignment, governance frameworks, and societal preparedness. Understanding these battlelines is essential for building AI systems that are safe, beneficial, and aligned with human values.
@@ -71,11 +87,15 @@
                 </a>
 
                 <!-- Article 2 -->
-                <a href="https://internationalaisafetyreport.org/" target="_blank" rel="noopener noreferrer" class="article-card">
+                <a href="https://internationalaisafetyreport.org/" target="_blank" rel="noopener noreferrer" class="article-card" data-tags="research law">
                     <div class="article-image">
                         <i data-lucide="globe"></i>
                     </div>
                     <div class="article-content">
+                        <div class="article-tags">
+                            <span class="article-tag tag-research">Research</span>
+                            <span class="article-tag tag-law">Law</span>
+                        </div>
                         <h2 class="article-title">International AI Safety Report</h2>
                         <p class="article-summary">
                             A comprehensive global report on AI safety frameworks, international collaboration efforts, and emerging standards. This resource provides critical insights into how countries worldwide are addressing AI safety challenges and working together to establish common principles and practices for responsible AI development.
@@ -88,11 +108,14 @@
                 </a>
 
                 <!-- Article 3 -->
-                <a href="https://www.theguardian.com/technology/2026/jan/22/grok-ai-generated-millions-sexualised-images-in-month-research-says" target="_blank" rel="noopener noreferrer" class="article-card">
+                <a href="https://www.theguardian.com/technology/2026/jan/22/grok-ai-generated-millions-sexualised-images-in-month-research-says" target="_blank" rel="noopener noreferrer" class="article-card" data-tags="grok-ai">
                     <div class="article-image">
                         <i data-lucide="alert-triangle"></i>
                     </div>
                     <div class="article-content">
+                        <div class="article-tags">
+                            <span class="article-tag tag-grok-ai">Grok AI</span>
+                        </div>
                         <h2 class="article-title">Grok AI Generated Millions of Sexualised Images, Research Says</h2>
                         <p class="article-summary">
                             Research reveals that Grok, the AI chatbot developed by xAI, generated an estimated 3 million sexualised images in just 11 days in early January 2026. The Center for Countering Digital Hate found that approximately 23,000 of these images depicted minors. This incident has triggered global regulatory investigations and renewed debate about AI safety guardrails and the need for robust content moderation in generative AI systems.
@@ -105,11 +128,14 @@
                 </a>
 
                 <!-- Article 4 -->
-                <a href="https://www.livescience.com/health/diagnostic-dilemma-a-woman-experienced-delusions-of-communicating-with-her-dead-brother-after-late-night-chatbot-sessions" target="_blank" rel="noopener noreferrer" class="article-card">
+                <a href="https://www.livescience.com/health/diagnostic-dilemma-a-woman-experienced-delusions-of-communicating-with-her-dead-brother-after-late-night-chatbot-sessions" target="_blank" rel="noopener noreferrer" class="article-card" data-tags="chatgpt">
                     <div class="article-image">
                         <i data-lucide="brain"></i>
                     </div>
                     <div class="article-content">
+                        <div class="article-tags">
+                            <span class="article-tag tag-chatgpt">ChatGPT</span>
+                        </div>
                         <h2 class="article-title">Woman Experienced Delusions After Late-Night Chatbot Sessions</h2>
                         <p class="article-summary">
                             A medical case study documents the first peer-reviewed instance of "AI-associated psychosis," where a 26-year-old woman developed delusions that she could communicate with her deceased brother through an AI chatbot. After prolonged late-night sessions with GPT-4o, she became convinced that her brother had left a digital avatar accessible through AI. This case highlights potential mental health risks of immersive AI interactions, especially for emotionally vulnerable individuals.
@@ -173,6 +199,36 @@
             const navLinks = document.querySelector('.nav-links');
             navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
         }
+
+        // Filter functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-tag');
+            const articleCards = document.querySelectorAll('.article-card');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const filter = this.getAttribute('data-filter');
+
+                    // Update active state
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+
+                    // Filter articles
+                    articleCards.forEach(card => {
+                        if (filter === 'all') {
+                            card.style.display = 'block';
+                        } else {
+                            const tags = card.getAttribute('data-tags');
+                            if (tags && tags.includes(filter)) {
+                                card.style.display = 'block';
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        }
+                    });
+                });
+            });
+        });
     </script>
 </body>
 </html>
