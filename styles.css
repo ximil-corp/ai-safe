@@ -608,6 +608,30 @@ body {
     border: 1px solid rgba(239, 68, 68, 0.3);
 }
 
+.tag-claude {
+    background: rgba(204, 93, 73, 0.15);
+    color: #CC5D49;
+    border: 1px solid rgba(204, 93, 73, 0.3);
+}
+
+.tag-aws {
+    background: rgba(255, 153, 0, 0.15);
+    color: #FF9900;
+    border: 1px solid rgba(255, 153, 0, 0.3);
+}
+
+.tag-gemini {
+    background: rgba(66, 133, 244, 0.15);
+    color: #4285F4;
+    border: 1px solid rgba(66, 133, 244, 0.3);
+}
+
+.tag-security {
+    background: rgba(16, 185, 129, 0.15);
+    color: #10B981;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
 .articles-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -858,3 +882,4 @@ body {
 .hidden {
     display: none;
 }
+
